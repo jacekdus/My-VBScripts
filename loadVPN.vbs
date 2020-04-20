@@ -2,7 +2,7 @@
 
 Set WshShell = WScript.CreateObject("WScript.Shell")
 Dim userName
-Dim path
+Dim appPath
 
 Dim exeName
 Dim statusCode
@@ -16,12 +16,12 @@ End Sub
 
 '/// MAIN
 
-run(appPath & "loadVPN.bat")	'* Run VPN
+run(appPath & "Programy\LoadVPN.bat")	'* Run VPN
 
 On Error Resume Next			'* Run disks
 	Do
 		Err.Clear
-		run(appPath & "log.lnk") 	
+		run(appPath & "Programy\Log.lnk") 	
 		WScript.Sleep(5000)
 	Loop While ( Err.Number <> 0)
 On Error GoTo 0
@@ -30,3 +30,4 @@ On Error GoTo 0
 WshShell.Run("""C:\Program Files\Belkin\Network USB Hub Control Center\Connect.exe""")
 WshShell.Run("""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office 2013\Outlook 2013.lnk""")
 WshShell.Run(appPath & "Programy\skrypt.vbs")
+WshShell.Run(appPath & "GODZINY.lnk")
