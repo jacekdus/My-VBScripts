@@ -12,9 +12,9 @@ Sub runOnErrorResume(exeFile)
 		Do
 			Err.Clear
 			statusCode = WshShell.Run (exeFile, 1, true)
-			'msgbox(statusCode)
+			'msgbox("file: " & exeFile & " | statusCode = " & statusCode)
 			WScript.Sleep(5000)
-		Loop While ( Err.Number <> 0)
+		Loop While ( Err.Number <> 0 Or statusCode = 1168)
 	On Error GoTo 0
 End Sub
 
